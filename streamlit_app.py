@@ -15,7 +15,7 @@ import os
 
 # ====================== CONFIG ======================
 try:
-    GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+    GROQ_API_KEY ="gsk_OEkrKvWavvYxVd70nOHZWGdyb3 FY2ORUZisXFCK85HFspCqEtrke"
 except (FileNotFoundError, KeyError):
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
