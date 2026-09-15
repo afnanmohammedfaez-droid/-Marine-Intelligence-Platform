@@ -15,7 +15,7 @@ import os
 
 # ====================== CONFIG ======================
 try:
-    GROQ_API_KEY ="gsk_OEkrKvWavvYxVd70nOHZWGdy b3FY2ORUZisXFCK85HFspCqEtrke"
+    GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 except (FileNotFoundError, KeyError):
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
@@ -23,7 +23,7 @@ if not GROQ_API_KEY:
     st.error("GROQ_API_KEY is not configured. Add it to Streamlit secrets or the environment.")
     st.stop()
 
-client = Groq(api_key=GROQ_API_KEY)
+client = Groq(api_key="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")
 
 WHATSAPP_NUMBER = "919876543210"
 PHONE_NUMBER = "+919876543210"
@@ -742,7 +742,7 @@ def pfz_agent(location_info, weather_info=None):
 
 def call_groq_llm(messages, max_tokens=350, temperature=0.3):
     """Executes chat completions with active fast models and strips reasoning tokens."""
-    models = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
+    models = ["qwen/qwen3.8-27b", "qwen/qwen3.6-27b"]
     for model_name in models:
         try:
             completion = client.chat.completions.create(
